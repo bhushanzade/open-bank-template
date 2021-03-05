@@ -1,0 +1,80 @@
+.section-shapes {
+  position: relative !important;
+}
+
+.section-shaped {
+  position: relative;
+}
+
+.section-shaped .shape {
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
+
+.section-shaped .shape span {
+  position: absolute;
+}
+
+.section-shaped .shape-style-1 :nth-child(1) {
+  top: 213px;
+  left: -179px;
+  background: transparent url('../assets/images/blob-small.svg') 0% 0% no-repeat padding-box;
+}
+
+.section-shaped .shape-style-1 :nth-child(2) {
+  top: -227.9068603515625px;
+  left: 852px;
+  background: transparent url('../assets/images/circle.svg') 0% 0% no-repeat padding-box;
+}
+
+.section-shaped .shape-style-1 :nth-child(3) {
+  top: 696px;
+  left: 462px;
+  background: transparent url('../assets/images/accounting_dots.svg') 0% 0% no-repeat padding-box;
+}
+
+.section-shaped .shape-style-1 :nth-child(4) {
+  top: 936px;
+  left: 1458px;
+  background: transparent url('../assets/images/accounting_dots.svg') 0% 0% no-repeat padding-box;
+}
+
+.section-shaped .shape-style-1 :nth-child(5) {
+  top: 1009px;
+  left: 0.0001220703125px;
+  background: transparent url('../assets/images/sol_wave_bg.svg') 0% 0% no-repeat padding-box;
+}
+
+.blob-small {
+  width: 571px;
+  height: 572px;
+  opacity: 0.5;
+}
+
+.circle-img {
+  width: 983px;
+  height: 992px;
+  /* transform: matrix(0.12, -0.99, 0.99, 0.12, 0, 0); */
+  opacity: 0.5;
+}
+
+.account-dots-1 {
+  width: 430px;
+  height: 70px;
+  opacity: 0.5;
+}
+
+.account-dots-2 {
+  width: 430px;
+  height: 70px;
+  opacity: 0.5;
+}
+
+.sol-wave {
+  width: 1920px;
+  height: 736px;
+  opacity: 1;
+}
