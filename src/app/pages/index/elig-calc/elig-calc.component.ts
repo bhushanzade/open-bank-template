@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-elig-calc',
@@ -6,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./elig-calc.component.css']
 })
 export class EligCalcComponent implements OnInit {
-
+  reactiveForm: FormGroup;
   mIncome: number = 0;
   mExpense: number = 0;
   tenure: number = 0;
@@ -15,7 +17,15 @@ export class EligCalcComponent implements OnInit {
   loan_amount: number = 0;
   emi_amount: number = 0;
 
-  constructor() { }
+  constructor(fb: FormBuilder) {
+    this.reactiveForm = fb.group({
+      mIncome: ['', Validators.compose([Validators.nullValidator])],
+      mExpense: ['', Validators.compose([Validators.nullValidator])],
+      tenure: ['', Validators.compose([Validators.nullValidator])],
+      isExistingLoan: ['', Validators.compose([Validators.nullValidator])],
+      existingLoanAmt: ['', Validators.compose([Validators.nullValidator, Validators.pattern(/^\d+$/)])]
+    });
+  }
 
   ngOnInit(): void {
   }
@@ -35,14 +45,14 @@ export class EligCalcComponent implements OnInit {
   }
 
   onChangeExstAmt(): void {
-    if (typeof (this.existingLoanAmt) === 'number')
+    var reg = new RegExp(/^\d+$/);
+    if (reg.test(this.existingLoanAmt.toString()))
       this.calculateEligibility();
   }
 
   calculateEligibility(): void {
     let remainInc = this.mIncome - this.mExpense;
     if (this.isExistingLoan) remainInc -= this.existingLoanAmt;
-    console.log(this.existingLoanAmt);
 
     if (remainInc < 0) {
       this.loan_amount = 0;
@@ -67,5 +77,21 @@ export class EligCalcComponent implements OnInit {
           break;
       }
     }
+  }
+
+  getMoney(): void {
+    if (this.loan_amount > 0) {
+      Swal.fire(
+        'Congratulations!',
+        'You are eligible to get loan!',
+        'success'
+      )
+    } else[
+      Swal.fire(
+        'Sorry!',
+        'You are not eligible to get loan!',
+        'error'
+      )
+    ]
   }
 }

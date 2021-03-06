@@ -8,6 +8,7 @@ import { AppLayoutComponent } from './layouts/app-layout/app-layout.component';
 import { SessionLayoutComponent } from './layouts/session-layout/session-layout.component';
 import { AppRoutes } from './config/routes/app.routing';
 import { PageNotFoundComponent } from './core/page-not-found/page-not-found.component';
+import { GlobalModule } from './global/global.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { PageNotFoundComponent } from './core/page-not-found/page-not-found.comp
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(AppRoutes)
+    RouterModule.forRoot(AppRoutes),
+    GlobalModule
   ],
   providers: [],
   bootstrap: [AppComponent]

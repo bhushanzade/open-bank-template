@@ -11,7 +11,7 @@ const Component = [
   declarations: [...Component],
   exports: [...Component],
   imports: [
-    CommonModule
+    CommonModule,
   ]
 })
 export class GlobalModule { }
